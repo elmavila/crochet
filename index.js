@@ -1,14 +1,32 @@
-let data = [
-  "Yarn of your choice",
-  "Crochet hook that fits your yarn",
-  "Scissors",
-  "Needle"
-];
+class Pattern {
+  constructor(materials, intro, stitches) {
+    this.materials = materials;
+    this.intro = intro;
+    this.stitches = stitches;
+  }
+}
 
-let list = document.getElementById("myList");
+function getPattern() {
+  return new Pattern(
+    [
+      "Yarn of your choice",
+      "Crochet hook that fits your yarn",
+      "Scissors",
+      "Needle",
+    ],
+    "Comfortable fingergloves suitable for any hand size",
+    ["buble", "buble"]
+  );
+}
 
-data.forEach((item) =>{
-    let li = document.createElement("li");
-    li.innerText = item;
-    list.appendChild(li);
+const pattern = getPattern();
+
+const materialsList = document.getElementById("materials");
+
+pattern.materials.forEach((m) => {
+  const li = document.createElement("li");
+  li.innerText = m;
+  materialsList.appendChild(li);
+  console.log(m);
+  console.log(li);
 });
